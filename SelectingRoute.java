@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class SelectingRoute {
     
-    selectingRoute(int busNumber, int numberOfStops, ArrayList<location> stops) {
+    selectingRoute(int busNumber, int numberOfStops, ArrayList<location> stops, location currentDriverLocation) {
         // Constructor
     }
 
@@ -30,14 +30,32 @@ public class SelectingRoute {
         }
     }
 
+    boolean routeIsActive() {
+        return true; // Placeholder for route activity check
+    }
+
+    location getCurrentDriverLocation() {
+        // Return the current location of the driver
+        return null;
+    }
+    void trackDriverLocation() {
+        // Track the driver's location
+        location currentLocation = getCurrentDriverLocation();
+    }
     void calculateRoute() {
         // Calculate the route based on the stops
         if (isValidBusNumber(getBusNumber()) == true && getNumberOfStops() > 0) {
             // Perform route calculation
             System.out.println("Calculating route for bus number: " + getBusNumber());
             ArrayList<location> stopsOnRoute = getStops(getBusNumber());
-
             
+            while (routeIsActive() && !stopsOnRoute.isEmpty()) {
+                trackDriverLocation();
+
+                getCurrentStop(stopsOnRoute); // Placeholder for getting the current stop
+                displayRouteInfo(); // Placeholder for displaying route information
+            }
+            System.out.println("Route calculation completed for bus number: " + getBusNumber());
 
         } else {
             // Handle invalid bus number or no stops
