@@ -42,6 +42,17 @@ public class SelectingRoute {
         // Track the driver's location
         location currentLocation = getCurrentDriverLocation();
     }
+
+    stop getCurrentStop(ArrayList<location> stopsOnRoute) {
+        // Get the current stop based on the driver's location
+        return null; // Placeholder for getting the current stop
+    }
+
+    void displayRouteInfo() {
+        // Display route information
+        System.out.println("Displaying route information for bus number: " + getBusNumber());
+    }
+
     void calculateRoute() {
         // Calculate the route based on the stops
         if (isValidBusNumber(getBusNumber()) == true && getNumberOfStops() > 0) {
