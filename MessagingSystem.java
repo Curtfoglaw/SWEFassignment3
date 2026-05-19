@@ -13,7 +13,12 @@ public class MessagingSystem {
 
     public String getMessages() {
         // return any received messages
-        return "This is a message";
+        if (checkMessages()) {
+            return "This is a message";
+        }
+        else {
+            return "No New Messages";
+        }
     }
 
     public String findUserID(String userName) {
@@ -21,8 +26,19 @@ public class MessagingSystem {
         return "ij4ewioafj";
     }
 
-    public boolean sendMessage(String message, String userID) {
+    public boolean writeMessage(String message, String userName) {
         // send a message to the user
+        String userID = findUserID(userName);
+        if (sendMessage(message, userID)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean sendMessage(String message, String userID) {
+        // send the message to user and save copy to server
         return true;
     }
 }
